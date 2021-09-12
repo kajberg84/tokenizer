@@ -1,0 +1,18 @@
+{
+  "name": "laboration1-1dv610",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv610/student/kb223aw/l1.git"
+  },
+  "keywords": [],
+  "author": "Kaj Berg",
+  "developer": "Kaj Berg",
+  "license": "ISC"
+}
