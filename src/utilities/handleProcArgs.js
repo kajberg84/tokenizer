@@ -1,4 +1,5 @@
 export function checkProcessArgs(){
-  const firstInput = process.args(slice(2,3))
-  console.log("first process arg", firstInput);
+  const tokenType = process.argv.slice(2,3)
+  const tokenString = process.argv.slice(3,4)
+  // Error handling on process argv
 }
