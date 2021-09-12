@@ -1,11 +1,14 @@
 {
   "name": "laboration1-1dv610",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tokenizer",
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
   },
   "repository": {
     "type": "git",
@@ -14,5 +17,13 @@
   "keywords": [],
   "author": "Kaj Berg",
   "developer": "Kaj Berg",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsdoc": "^30.6.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
 }
