@@ -12,22 +12,13 @@ export class KBsTokenizer {
 
   wordAndDotGrammar(inputedString) {
     console.log("wordAndDotGrammar");
-    const splittedStringAtDots = inputedString.split(/([.])+/)
+    const splittedStringAtDots = inputedString.split(/([. ])+/)
+    console.log(splittedStringAtDots);
     const splittedItemsAtSpaces = splittedStringAtDots.filter((item)=>{
       return item !== ' ' && item !== ''
     })
-    const removingSpacesFromItem = splittedItemsAtSpaces.map(item => item.trim())
-    console.log(removingSpacesFromItem);
-  }
-
-  wordAndDotGrammar2(inputedString) {
-    console.log("wordAndDotGrammar2");
-    const splittedStringAtDotsAndSpaces = inputedString.split(/([.])+/).filter((item)=>{
-      return item !== ' ' && item !== ''
-    }).map(item => item.trim())
-
-    console.log("short version:", splittedStringAtDotsAndSpaces);
-  }
+    console.log(splittedItemsAtSpaces);
+      }
 
   arithmeticGrammar() {
     console.log("arithmeticGrammar");
@@ -46,9 +37,6 @@ export class KBsTokenizer {
       case "wordAndDotGrammar":
         this.wordAndDotGrammar(this.inputString);
         break;
-        case "wordAndDotGrammar2":
-          this.wordAndDotGrammar2(this.inputString);
-          break;
       case "arithmeticGrammar":
         this.arithmeticGrammar(this.inputString);
         break;
