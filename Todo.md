@@ -21,4 +21,4 @@ varje objekt ska ha en
   }
 ]
 
-varje tokenvalue ska kollas mot respektive grammarType som ska innehålla mindre regex metoder.
+varje sträng ska kollas mot respektive grammarType som ska innehålla mindre regex metoder.
