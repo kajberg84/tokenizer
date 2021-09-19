@@ -21,11 +21,11 @@ const lexicalGrammars = [
     }
 ]
 
-const stringToTokenize = "Hej. Kaj."
+const stringToTokenize = "..hehe.hoho"
 
 const startApp = async () => {
   try {
-    tokenize(lexicalGrammars, stringToTokenize)
+    tokenize(lexicalGrammars, stringToTokenize)    
   } catch (error) {
     console.log("Error in startup");
     console.error(error)
