@@ -8,11 +8,7 @@ export class KBsTokenizer {
   constructor(lexicalGrammars, stringToTokenize) {
     this._lexicalGrammars = lexicalGrammars;
     this._stringToTokenize = stringToTokenize;
-    this._array = [];
-  }
-
-  tokenArray(){
-    return this._array;
+    this._tokenCollection = [];
   }
 
  get tokenizedString(){
@@ -27,40 +23,45 @@ export class KBsTokenizer {
   return this._lexicalGrammars;
  }
 
- checkForBestTokenMatch(){
-   const grammars = this.lexicalGrammarInfo;
-    let tokenString = '';
-    let createTokenString = '';
-    let createTokenType = 'END';
+ tokenArray(){
+  return this._tokenCollection;
+}
 
-      for(let i=0;i < grammars.length;i++){
-        console.log("grammar: ", grammars[i].tokenRegex);
-        for(let j=0; j < this.tokenizedString.length; j++){
-          const letter = this.tokenizedString[j];
-          if(letter.match(grammars[i].tokenRegex)){
-            tokenString += letter;
-            if(tokenString > createTokenString){
-              createTokenString = tokenString;
-              createTokenType = grammars[i].tokenType;
-            }
-          } else {
-            break;
-          }
-        }
+
+checkForLongestTokenMatch(grammar) {
+  let tokenString = '';
+  for(let j=0; j < this.tokenizedString.length; j++){
+    const letter = this.tokenizedString[j];
+    if(letter.match(grammar.tokenRegex)){
+      tokenString += letter;
+    } else {
+      break;
+    }
+  }
+  return tokenString;
+}
+
+startTokenmatch(){
+   do {
+     let tokenString = '';
+     let createTokenString = '';
+     let createTokenType = 'END';
+
+     for(let i=0;i < this.lexicalGrammarInfo.length;i++){
+      tokenString = this.checkForLongestTokenMatch(this.lexicalGrammarInfo[i])
+      if(tokenString.length > createTokenString.length){
+        createTokenString = tokenString
+        createTokenType = this.lexicalGrammarInfo[i].tokenType
       }
+     }
 
-      console.log("token to create:", createTokenString, "type: ",createTokenType );
-        this._array.push({
-          tokenType: createTokenType,
-          tokenValue:createTokenString  
-        })
-    
-       this.tokenizedString = this.tokenizedString.slice(createTokenString.length)
-
-       console.log(this.tokenizedString);
-
-   
-
+       this._tokenCollection.push({
+         tokenType: createTokenType,
+         tokenValue:createTokenString  
+       })
+       
+        this.tokenizedString = this.tokenizedString.slice(createTokenString.length)
+  } while (this.tokenizedString.length > 0);      
  }
 
 }

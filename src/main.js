@@ -21,11 +21,23 @@ const lexicalGrammars = [
     }
 ]
 
-const stringToTokenize = "..hehe.hoho"
+const lexicalGrammars2 = [
+  {
+    tokenType:"FLOAT",
+    tokenRegex:/^[0-9]+\.([0-9])+/ 
+  },
+  {
+    tokenType: "INTEGER",
+    tokenRegex: /^[0-9]+/
+  }
+]
+
+const stringToTokenize = "Kossa.hrhr."
+const stringToTokenize2 = "3.14 5"
 
 const startApp = async () => {
   try {
-    tokenize(lexicalGrammars, stringToTokenize)    
+    tokenize(lexicalGrammars2, stringToTokenize2)    
   } catch (error) {
     console.log("Error in startup");
     console.error(error)
