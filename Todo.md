@@ -1,24 +1,19 @@
 
-
-när klassen tar in grammarType
-så ska den delas upp i en array av object
-varje objekt ska ha en 
+reglerna för hela strängen att tokenizera
 
 [
   {
-  tokenValue:"Hello",
-  tokenType:"WORD"
-  }
+  tokenType:"WORD",
+  tokenreg:"/^[\w|åäöÅÄÖ]+/",
+  },
 
   {
-  tokenValue:"world",
-  tokenType:"WORD"
-  }
-
-  {
-  tokenValue:".",
-  tokenType:"DOT"
+  tokenType:"DOT",
+  tokenreg:"/^\./",
   }
 ]
 
-varje sträng ska kollas mot respektive grammarType som ska innehålla mindre regex metoder.
+ska ta in dessa regler och en sträng.
+
+strängen ska köras matchas och sen splices.
+
