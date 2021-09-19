@@ -2,39 +2,32 @@
 //string.
 export function tokenize(lexicalGrammars, stringToTokenize) {
   stringToTokenize.trim();
-
-
-
-    //köra så länge det finns sträng kvar   do while?
+  const allTokens = [];
     do {
-      //köra igen alla lexikal grammars. och ska kolla mot tecknet sen klippa ut det längsta
-      let returnedToken = getLongestToken(lexicalGrammars, stringToTokenize)
-      //klippa ut längden från det returnerade tokenet först ur string to tokenize.
+      const returnedToken = getLongestToken(lexicalGrammars, stringToTokenize)
+      // när token har returnerats klipp av strängen med den längden.
       console.log("strängen som är kvar", stringToTokenize);
 } while (stringToTokenize.length);
 }
 
 
-
-
-
 function getLongestToken (lexicalGrammars, stringToTokenize) {
   let regex = lexicalGrammars[0].tokenreg; // SKA EJ HÅRDKODAS men kör bara en nu
-
-  let longestTokenMatched ='';
-  let matchedTokenType ='';
-  let tokenArray = [];
 
   for(let i = 0; i < stringToTokenize; i++){
     let letter = stringToTokenize[i];
     if (letter.match(regex)) {
-      //kolla nästa om den också matchar. osv
-      matchedTokenType = lexicalGrammars[0];
-      longestTokenMatched+= letter;
+      //om den matcher fortsätt att kolla nästa i turorning.
+      //lägg dessa i en variabel som sparas.
+
+
     } 
     else {
-      tokenArray[0] = [matchedTokenType, longestTokenMatched]
-      return tokenArray
+            // När den inte matchar längre => 
+            //ska den byta lexikal grammatik
+            // KÖRA igen och matcha.. 
+            // OM den är längre. skriv över variabeln.
+            // NÄR ALLA KOLLATS returneran längsta token.
     }
 
   }

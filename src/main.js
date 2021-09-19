@@ -21,17 +21,16 @@ const lexicalGrammars = [
     }
 ]
 
-const stringToTokenize = "Hej. Kaj."
+const stringToTokenize = "Meningen är hej.Kaj."
 
 const startApp = async () => {
   try {
-
 const tokenizedString = tokenize(lexicalGrammars, stringToTokenize)
-console.log(tokenizedString);
+console.log("alla tokens:", tokenizedString);
 
   } catch (error) {
     console.log("Error in startup");
-    console.error(error.message)
+    console.error(error)
 
     if (error instanceof InputStringError) {
       process.exitCode = 30
