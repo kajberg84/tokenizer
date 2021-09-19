@@ -6,36 +6,29 @@
  * @author Kaj Berg <kb223aw@student.lnu.se>
  * @version 1.0.0
  */
-// import { KBsTokenizer } from "./kBsTokenizer.js";
-import { InputStringError } from "./utilities/errorHandling.js";
-import { tokenize } from "./utilities/tokenize.js";
+
+
+import { tokenize } from "./tokenize.js";
 
 const lexicalGrammars = [
     {
     tokenType:"WORD",
-    tokenreg:/^[\w|åäöÅÄÖ]+/
+    tokenRegex:/^[\w|åäöÅÄÖ]+/
     },  
     {
     tokenType:"DOT",
-    tokenreg:/^\./
+    tokenRegex:/^\./
     }
 ]
 
-const stringToTokenize = "Meningen är hej.Kaj."
+const stringToTokenize = "Hej. Kaj."
 
 const startApp = async () => {
   try {
-const tokenizedString = tokenize(lexicalGrammars, stringToTokenize)
-console.log("alla tokens:", tokenizedString);
-
+    tokenize(lexicalGrammars, stringToTokenize)
   } catch (error) {
     console.log("Error in startup");
     console.error(error)
-
-    if (error instanceof InputStringError) {
-      process.exitCode = 30
-      //Göra en egen exitcode. lägg till i readme
-    }
   }
 }
 
