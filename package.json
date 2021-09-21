@@ -1,7 +1,7 @@
 {
-  "name": "laboration1-1dv610",
+  "name": "laboration-1",
   "version": "1.0.0",
-  "description": "Tokenizer",
+  "description": "1dv610 - Tokenizer - laboration 1",
   "main": "main.js",
   "type": "module",
   "scripts": {
@@ -15,8 +15,8 @@
     "url": "git@gitlab.lnu.se:1dv610/student/kb223aw/l1.git"
   },
   "keywords": [],
-  "author": "Kaj Berg",
-  "developer": "Kaj Berg",
+  "author": "Kaj Berg <kb223aw@student.lnu.se>",
+  "developer": "Kaj Berg  <kb223aw@student.lnu.se>",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.32.0",
