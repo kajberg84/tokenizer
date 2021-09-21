@@ -4,7 +4,7 @@
  * @author Kaj Berg <kb223aw@student.lnu.se>
  * @version 1.0.0
  */
-import { KBsTokenizer } from "./kBsTokenizer.js";
+import { KBsTokenizer } from "./KBsTokenizer.js";
 
 export function tokenize(lexicalGrammars, stringToTokenize) {
       const allTokens = new KBsTokenizer(lexicalGrammars, stringToTokenize)

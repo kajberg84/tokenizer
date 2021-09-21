@@ -8,15 +8,20 @@
 
 import { tokenize } from "./tokenize.js";
 import * as test from "./testCases.js"
+import { LexicalError } from "./errorHandling.js";
 
 const startApp = async () => {
   try {
     tokenize(test.lexicalGrammars, test.stringToTokenize)    
-    // tokenize(test.lexicalGrammars2, test.stringToTokenize2)  
     // tokenize(test.lexicalGrammars3, test.stringToTokenize3)  
-  } catch (error) {
-    console.log("Error in startup");
-    console.error(error)
+    // tokenize(test.lexicalGrammars2, test.stringToTokenize2)  
+    // tokenize(test.lexicalGrammars3, test.stringToCreateError3)  
+
+  } catch (err) {
+    if (err instanceof LexicalError) {
+      console.log("LexicalError");
+    }
+    console.error(err.message)
   }
 }
 

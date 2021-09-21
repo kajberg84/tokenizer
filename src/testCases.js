@@ -39,10 +39,10 @@ export const lexicalGrammars3 = [
 {
   tokenType: "MUL",
   tokenRegex: /^[*]/  
-}
+},
 ]
 
-export const stringToTokenize =  " Hej Daniel. Ha det så bra."
+export const stringToTokenize =  "     Hej Daniel. Ha det så bra."
 export const stringToTokenize2 = "3.14 5"
-export const stringToTokenize3 = "3 + 5"
-
+export const stringToTokenize3 = "3 + 54 * 4"
+export const stringToCreateError3 = "3 + 54 aaa"
