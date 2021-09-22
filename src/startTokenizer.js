@@ -18,6 +18,7 @@ let toggleState = 0;
 export function startTokenizer(lexicalGrammars, stringToTokenize) {
   const tokens = new Tokenizer(lexicalGrammars, stringToTokenize);
   tokens.startTokenmatch();
+  tokens.showTokenCollection();
   const allTokens = tokens.allCreatedTokens;
   console.log('Forward = 1, Back = 2, Start = 3, Close = everything else');
   console.log(`\n First token: `, allTokens[toggleState]);

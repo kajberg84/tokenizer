@@ -16,7 +16,7 @@ export  const lexicalGrammars = [
   },
   {
     tokenType:"FLOAT",
-    tokenRegex: /^[0-9]+.[0-9]+/
+    tokenRegex: /^.*[0-9]|./g
   },
 {
   tokenType: "INTEGER",
@@ -29,7 +29,7 @@ export  const lexicalGrammars = [
 export const lexicalGrammars2 = [
 {
   tokenType:"FLOAT",
-  tokenRegex: /^[0-9]+.[0-9]+/
+  tokenRegex: /^.*[0-9]|./g
 },
 {
   tokenType: "INTEGER",
@@ -56,3 +56,4 @@ export const stringToTokenize =  "     Hej Daniel..... Ha det så bra."
 export const stringToTokenize2 = "3.14 5"
 export const stringToTokenize3 = "3 + 54 * 4"
 export const stringToCreateError3 = "3 + 54 aaa"
+export const space =  " "

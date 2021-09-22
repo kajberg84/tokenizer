@@ -48,7 +48,9 @@ saveTokenToCollection(createTokenType, createTokenString){
 }
 
 removeCreatedTokenFromString(createTokenString){
-  this.tokenizedString = this.tokenizedString.slice(createTokenString.length);
+  if(this.tokenizedString){
+    this.tokenizedString = this.tokenizedString.slice(createTokenString.length);
+  }
 }
 
 showTokenCollection(){
@@ -58,11 +60,14 @@ showTokenCollection(){
 
 checkForNoRegexMatch(stringlengthState){
   if(stringlengthState === this.tokenizedString.length){
-    throw new LexicalError(`No lexical element matches "${this.tokenizedString}"`)
+    throw new LexicalError("No lexical element matches",this.tokenizedString )
   }
 }
 
+
+
 // ADD USER UI HERE
+
 
 checkForLongestTokenMatch(grammar) {
   let returnTokenString = '';
@@ -83,7 +88,7 @@ startTokenmatch(){
     let regexMatchedString = '';
     let createTokenString = '';
     let createTokenType = '';
-    let stringlengthState;
+    let stringlengthState = '';
 
     for(let i= 0;i < this.lexicalGrammarInfo.length;i++){
      this.removeSpace();
@@ -98,7 +103,7 @@ startTokenmatch(){
 
    this.saveTokenToCollection(createTokenType, createTokenString);
    this.removeCreatedTokenFromString(createTokenString);
-   this.checkForNoRegexMatch(stringlengthState)
+   this.checkForNoRegexMatch(stringlengthState);
 
   } while (this.tokenizedString.length > 0); 
 

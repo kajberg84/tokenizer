@@ -12,14 +12,17 @@ import { LexicalError } from "./errorHandling.js";
 
 const startApp = async () => {
   try {
-    // tokenize(test.lexicalGrammars, test.stringToTokenize)    
-    startTokenizer(test.lexicalGrammars3, test.stringToTokenize3)  
-    // tokenize(test.lexicalGrammars2, test.stringToTokenize2)  
-    // tokenize(test.lexicalGrammars3, test.stringToCreateError3)  
+    // startTokenizer(test.lexicalGrammars, test.stringToTokenize)    
+    // startTokenizer(test.lexicalGrammars3, test.stringToTokenize3)  
+    
+    startTokenizer(test.lexicalGrammars2, test.stringToTokenize2)  
+    // startTokenizer(test.lexicalGrammars3, test.stringToCreateError3)  
+    // startTokenizer(test.lexicalGrammars1, test.space)  
 
   } catch (err) {
     if (err instanceof LexicalError) {
       console.log("LexicalError");
+      console.error(err.message)
     }
     console.error(err.message)
   }
