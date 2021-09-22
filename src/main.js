@@ -7,18 +7,12 @@
 
 
 import {  startTokenizer } from "./startTokenizer.js";
-import * as test from "./testCases.js"
+
 import { LexicalError } from "./errorHandling.js";
 
 const startApp = async () => {
   try {
-    // startTokenizer(test.lexicalGrammars, test.stringToTokenize)    
-    // startTokenizer(test.lexicalGrammars3, test.stringToTokenize3)  
-    
-    startTokenizer(test.lexicalGrammars2, test.stringToTokenize2)  
-    // startTokenizer(test.lexicalGrammars3, test.stringToCreateError3)  
-    // startTokenizer(test.lexicalGrammars1, test.space)  
-
+    startTokenizer();
   } catch (err) {
     if (err instanceof LexicalError) {
       console.log("LexicalError");

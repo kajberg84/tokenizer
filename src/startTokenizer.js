@@ -5,42 +5,23 @@
  * @version 1.0.0
  */
 import { Tokenizer } from "./Tokenizer.js";
-import readline from "readline";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-rl.prompt();
+import * as test from "./testCases.js"
+import { startUserCLI } from "./startUserCLI.js";
 
-let toggleState = 0;
 
-export function startTokenizer(lexicalGrammars, stringToTokenize) {
-  const tokens = new Tokenizer(lexicalGrammars, stringToTokenize);
+export function startTokenizer() {
+  const tokens = new Tokenizer(test.lexicalGrammars2, test.stringToTokenize2);
   tokens.startTokenmatch();
   tokens.showTokenCollection();
-  const allTokens = tokens.allCreatedTokens;
-  console.log('Forward = 1, Back = 2, Start = 3, Close = everything else');
-  console.log(`\n First token: `, allTokens[toggleState]);
 
-  rl.on("line", function (line) {
-    switch (line.trim()) {
-      case "1":
-        toggleState++;
-        console.log(`\n Active token:`, allTokens[toggleState]);
-        break;
-      case "2":
-        toggleState--;
-        console.log(`\n Active token:`,allTokens[toggleState]);
-        break;
-        case "3":
-            toggleState = 0;
-            console.log(`\n Active token:`,allTokens[toggleState]);
-            break;
-      default:
-        console.log("App Closed. Take Care !");
-        process.exit(0);
-    }
-    rl.prompt();
-  })
+  // startUserCLI(tokens.allCreatedTokens);
+
+  // console.log( tokens.getActiveToken());
+  // tokens.nextToken()
+  // console.log( tokens.getActiveToken());
+  // tokens.nextToken()
+  // tokens.previousToken()
+  // console.log( tokens.getActiveToken());
+
 }

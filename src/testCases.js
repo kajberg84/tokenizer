@@ -13,23 +13,13 @@ export  const lexicalGrammars = [
   {
   tokenType:"DOT",
   tokenRegex:/^\./
-  },
-  {
-    tokenType:"FLOAT",
-    tokenRegex: /^.*[0-9]|./g
-  },
-{
-  tokenType: "INTEGER",
-  tokenRegex: /^[0-9]+/
-}
+  }
 ]
-
-
 
 export const lexicalGrammars2 = [
 {
   tokenType:"FLOAT",
-  tokenRegex: /^.*[0-9]|./g
+  tokenRegex: /^.*[0-9]|./
 },
 {
   tokenType: "INTEGER",

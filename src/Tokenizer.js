@@ -18,6 +18,7 @@ export class Tokenizer {
     this._lexicalGrammars = lexicalGrammars;
     this._stringToTokenize = stringToTokenize;
     this._tokenCollection = [];
+    this._activeTokenValue = 0;
   }
 
  get tokenizedString(){
@@ -31,14 +32,27 @@ export class Tokenizer {
  get lexicalGrammarInfo(){
   return this._lexicalGrammars;
  }
+ 
+ get allCreatedTokens(){
+   return this._tokenCollection;
+  }
 
-removeSpace(){
-  this.tokenizedString = this.tokenizedString.trim()
+getActiveToken(){
+  const activeToken = this.allCreatedTokens[this._activeTokenValue]
+  return activeToken
 }
 
-get allCreatedTokens(){
-  return this._tokenCollection;
- }
+nextToken(){
+  this._activeTokenValue ++ ;
+}
+
+previousToken(){
+  this._activeTokenValue -- ;
+}
+
+  removeSpace(){
+    this.tokenizedString = this.tokenizedString.trim()
+  }
 
 saveTokenToCollection(createTokenType, createTokenString){
   this.allCreatedTokens.push({
@@ -58,22 +72,20 @@ showTokenCollection(){
   console.log("--- End of Tokencollection ---");
 }
 
+
 checkForNoRegexMatch(stringlengthState){
   if(stringlengthState === this.tokenizedString.length){
     throw new LexicalError("No lexical element matches",this.tokenizedString )
   }
 }
 
-
-
-// ADD USER UI HERE
-
-
 checkForLongestTokenMatch(grammar) {
   let returnTokenString = '';
   for(let j=0; j < this.tokenizedString.length; j++){
     const letterToMatch = this.tokenizedString[j];
+    
     if(letterToMatch.match(grammar.tokenRegex)){
+      console.log("this matched: ", letterToMatch);
       returnTokenString += letterToMatch;
     } else {
       break;
@@ -84,23 +96,22 @@ checkForLongestTokenMatch(grammar) {
 
 startTokenmatch(){
    do {
-
     let regexMatchedString = '';
     let createTokenString = '';
     let createTokenType = '';
     let stringlengthState = '';
 
     for(let i= 0;i < this.lexicalGrammarInfo.length;i++){
-     this.removeSpace();
-     regexMatchedString = this.checkForLongestTokenMatch(this.lexicalGrammarInfo[i]);
-     if(regexMatchedString.length > createTokenString.length){
-       createTokenString = regexMatchedString;
-       createTokenType = this.lexicalGrammarInfo[i].tokenType;
-     }
+      this.removeSpace();
+      regexMatchedString = this.checkForLongestTokenMatch(this.lexicalGrammarInfo[i]);
+      if(regexMatchedString.length > createTokenString.length){
+        createTokenString = regexMatchedString;
+        createTokenType = this.lexicalGrammarInfo[i].tokenType;
+
+      }
     }
-
+    console.log("create this token: ",createTokenString );
    stringlengthState = this.tokenizedString.length;
-
    this.saveTokenToCollection(createTokenType, createTokenString);
    this.removeCreatedTokenFromString(createTokenString);
    this.checkForNoRegexMatch(stringlengthState);
