@@ -6,14 +6,14 @@
  */
 
 
-import { tokenize } from "./tokenize.js";
+import {  startTokenizer } from "./startTokenizer.js";
 import * as test from "./testCases.js"
 import { LexicalError } from "./errorHandling.js";
 
 const startApp = async () => {
   try {
     // tokenize(test.lexicalGrammars, test.stringToTokenize)    
-    tokenize(test.lexicalGrammars3, test.stringToTokenize3)  
+    startTokenizer(test.lexicalGrammars3, test.stringToTokenize3)  
     // tokenize(test.lexicalGrammars2, test.stringToTokenize2)  
     // tokenize(test.lexicalGrammars3, test.stringToCreateError3)  
 

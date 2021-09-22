@@ -1,5 +1,5 @@
 /**
- * kBsTokenizer
+ * Tokenizer
  * 
  * @author Kaj Berg <kb223aw@student.lnu.se>
  * @version 1.0.0
@@ -13,7 +13,7 @@ import { LexicalError } from "./errorHandling.js";
  * @throws {LexicalError} - Throws error if no regex matches string.
  * @class KBsTokenizer
  */
-export class KBsTokenizer {
+export class Tokenizer {
   constructor(lexicalGrammars, stringToTokenize) {
     this._lexicalGrammars = lexicalGrammars;
     this._stringToTokenize = stringToTokenize;
@@ -79,7 +79,7 @@ checkForLongestTokenMatch(grammar) {
 
 startTokenmatch(){
    do {
-     
+
     let regexMatchedString = '';
     let createTokenString = '';
     let createTokenType = '';

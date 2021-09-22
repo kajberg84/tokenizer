@@ -4,7 +4,7 @@
  * @author Kaj Berg <kb223aw@student.lnu.se>
  * @version 1.0.0
  */
-import { KBsTokenizer } from "./KBsTokenizer.js";
+import { Tokenizer } from "./Tokenizer.js";
 import readline from "readline";
 
 const rl = readline.createInterface({
@@ -15,10 +15,9 @@ rl.prompt();
 
 let toggleState = 0;
 
-export function tokenize(lexicalGrammars, stringToTokenize) {
-  const tokens = new KBsTokenizer(lexicalGrammars, stringToTokenize);
+export function startTokenizer(lexicalGrammars, stringToTokenize) {
+  const tokens = new Tokenizer(lexicalGrammars, stringToTokenize);
   tokens.startTokenmatch();
-  //  tokens.showTokenCollection();
   const allTokens = tokens.allCreatedTokens;
   console.log('Forward = 1, Back = 2, Start = 3, Close = everything else');
   console.log(`\n First token: `, allTokens[toggleState]);
