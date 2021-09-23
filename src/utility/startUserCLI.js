@@ -1,3 +1,10 @@
+/**
+ * Command Line Interface - Beta.
+ * 
+ * @author Kaj Berg <kb223aw@student.lnu.se>
+ * @version 0.1.0
+ */
+
 import readline from "readline";
 
 const readCurrentLine = readline.createInterface({
@@ -8,7 +15,11 @@ readCurrentLine.prompt();
 
 let activeLine = 0;
 
-export function startUserCLI(allTokens){
+export function startUserCLI(tokenizedCollection){
+  tokenizedCollection.startTokenmatch();
+  // tokenizedCollection.showTokenCollection();
+   const allTokens =  tokenizedCollection.allCreatedTokens
+   console.log(allTokens);
   console.log('Forward = 1, Back = 2, Back to first token = 3, Close = everything else');
   console.log(`\n First token: `, allTokens[activeLine]);
 

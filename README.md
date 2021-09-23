@@ -16,7 +16,7 @@
 
 ---
 
-11. If you want to try out CLI-app you need to write - import { startUserCLI } from "./utility/startUserCLI.js" in main.js.  
+11. If you want to try out "CLI app - Beta" you need to write - import { startUserCLI } from "./utility/startUserCLI.js" in main.js.  
 12. Follow #1-9 then startUserCLI(tokenizedCollection)
 
 ---
@@ -40,9 +40,12 @@
 
 ## main.js
 
-  <span style="color:lightblue">@function startTokenizer</span>(LexicalGrammar, stringToTokenize)  
+  <span style="color:lightblue">startTokenizer</span>(LexicalGrammar, stringToTokenize)  
      @Returns instance of Tokenizer.
+
 ---------------
+
+## Methods for classinstance
 
 <span style="color:lightblue">getActiveToken()</span>  
 Returns active token.
@@ -60,7 +63,7 @@ Showing a collection of all created tokens.
 
 ### Extra Cli:
 
-exampel: instans.startUserCLI()
+example: instans.startUserCLI()
 
 <span style="color:lightblue">@function startUserCLI</span>(allTokens)  
 @allTokens - tokenCollection
