@@ -12,22 +12,16 @@ import { startUserCLI } from "./startUserCLI.js";
 
 import * as test from "./testCases.js"
 
+
 const startApp = async () => {
   try {
-    const tokenizedCollection = startTokenizer(test.ArithmeticGrammar, test.testCase14);
-
+    const tokenizedCollection = startTokenizer(test.ArithmeticGrammar, '3 + 54 * 4');    
     tokenizedCollection.startTokenmatch();
     tokenizedCollection.showTokenCollection();
-
-  // tokenizedCollection(tokens.allCreatedTokens);
-  // console.log( tokenizedCollection.getActiveToken());
-  //  tokenizedCollection.nextToken()
-  //  console.log( tokenizedCollection.getActiveToken());
-  // tokenizedCollection.nextToken()
-
+    // tokenizedCollection.nextToken()
   // tokenizedCollection.previousToken()
-  // console.log( tokenizedCollection.getActiveToken());
-
+    console.log( tokenizedCollection.getActiveToken());
+    
   } catch (err) {
     if (err instanceof LexicalError) {
       console.log("LexicalError");

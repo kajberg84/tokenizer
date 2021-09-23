@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-import { LexicalError } from "./errorHandling.js";
+import { LexicalError } from './errorHandling.js';
 
 /**
  *Creating an new Tokenizer object.
@@ -69,21 +69,20 @@ removeCreatedTokenFromString(createTokenString){
 }
 
 showTokenCollection(){
-  console.log("--- Tokencollection --- \n", this.allCreatedTokens);
-  console.log("--- End of Tokencollection ---");
+  console.log('--- Tokencollection --- \n', this.allCreatedTokens);
+  console.log('--- End of Tokencollection ---');
 }
 
 checkForError(tokenStringBeforeCreate){
   if(tokenStringBeforeCreate === this.tokenizedString.length){
-    throw new LexicalError("No lexical element matches",this.tokenizedString )
+    throw new LexicalError('No lexical element matches')
   }
 }
 
-checkForOnlySpaces() {
-  const spacesRegex = /\S/
-  if(!this.tokenizedString.match(spacesRegex)){
-    this.saveTokenToCollection("END", "")
-  }
+checkForOnlySpaces() {  
+  if(!this.tokenizedString.trim()){
+    console.log('str contains only whitespace');
+}
 }
 
 checkForLongestTokenMatch(grammar) {
@@ -91,7 +90,6 @@ checkForLongestTokenMatch(grammar) {
   for(let j=0; j < this.tokenizedString.length; j++){
     const letterToMatch = this.tokenizedString[j];    
     if(letterToMatch.match(grammar.tokenRegex)){
-      console.log("this matched: ", letterToMatch);
       returnTokenString += letterToMatch;
     } else {
       break;
@@ -101,13 +99,11 @@ checkForLongestTokenMatch(grammar) {
 }
 
 startTokenmatch(){
-   do {
+  while (this.tokenizedString.length > 0) {
     let regexMatchedString = '';
     let createTokenString = '';
     let createTokenType = '';
     let tokenStringBeforeCreate = '';
-
-    this.checkForOnlySpaces();
 
     for(let i= 0;i < this.lexicalGrammarInfo.length;i++){
       this.removeSpace();
@@ -117,16 +113,15 @@ startTokenmatch(){
         createTokenType = this.lexicalGrammarInfo[i].tokenType;
       }
     }
+    tokenStringBeforeCreate = this.tokenizedString.length;
+    this.saveTokenToCollection(createTokenType, createTokenString);
+    this.removeCreatedTokenFromString(createTokenString);
+    this.checkForError(tokenStringBeforeCreate);
+    // this.checkForOnlySpaces()
+    // this.saveTokenToCollection("END", "")
+  } 
+  this.saveTokenToCollection('END', '')
 
-   tokenStringBeforeCreate = this.tokenizedString.length;
-
-   this.saveTokenToCollection(createTokenType, createTokenString);
-   this.removeCreatedTokenFromString(createTokenString);
-   this.checkForError(tokenStringBeforeCreate);
-
-  } while (this.tokenizedString.length > 0); 
-
-  // this.saveTokenToCollection("END", "")
  }
 
 }

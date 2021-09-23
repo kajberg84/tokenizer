@@ -1,5 +1,5 @@
 
 automatiska tester.
 
-mocha chai
+hur mocha kan skicka tillbaka undefined.
 
