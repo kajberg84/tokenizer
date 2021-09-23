@@ -9,7 +9,7 @@ readCurrentLine.prompt();
 let activeLine = 0;
 
 export function startUserCLI(allTokens){
-  console.log('Forward = 1, Back = 2, Start = 3, Close = everything else');
+  console.log('Forward = 1, Back = 2, Back to first token = 3, Close = everything else');
   console.log(`\n First token: `, allTokens[activeLine]);
 
   readCurrentLine.on("line", function (line) {

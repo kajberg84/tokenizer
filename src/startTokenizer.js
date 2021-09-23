@@ -6,23 +6,7 @@
  */
 import { Tokenizer } from "./Tokenizer.js";
 
-import * as test from "./testCases.js"
-import { startUserCLI } from "./startUserCLI.js";
-
-
-export function startTokenizer() {
-  const tokens = new Tokenizer(test.ArithmeticGrammar, test.testCase15);
-  tokens.startTokenmatch();
-  tokens.showTokenCollection();
-
-  // startUserCLI(tokens.allCreatedTokens);
-
-  // console.log( tokens.getActiveToken());
-  // tokens.nextToken()
-  // console.log( tokens.getActiveToken());
-  // tokens.nextToken()
-
-  // tokens.previousToken()
-  // console.log( tokens.getActiveToken());
-
+export function startTokenizer(LexicalGrammar, stringToTokenize) {
+  const tokenizerInstans = new Tokenizer(LexicalGrammar, stringToTokenize);
+  return tokenizerInstans
 }
