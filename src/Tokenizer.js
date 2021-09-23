@@ -44,10 +44,16 @@ getActiveToken(){
 }
 
 nextToken(){
+  if(this._activeTokenValue >= (this.allCreatedTokens.length -1)){
+    return
+  }
   this._activeTokenValue++ ;
 }
 
 previousToken(){
+  if(this._activeTokenValue <= 0){
+    return
+  }
   this._activeTokenValue-- ;
 }
 
@@ -80,9 +86,10 @@ checkForError(tokenStringBeforeCreate){
 }
 
 checkForOnlySpaces() {  
-  if(!this.tokenizedString.trim()){
-    console.log('str contains only whitespace');
+ if(this.tokenizedString.match(/\S/)){
+return true;
 }
+return false;
 }
 
 checkForLongestTokenMatch(grammar) {
@@ -98,7 +105,7 @@ checkForLongestTokenMatch(grammar) {
   return returnTokenString;
 }
 
-startTokenmatch(){
+createTokens(){
   while (this.tokenizedString.length > 0) {
     let regexMatchedString = '';
     let createTokenString = '';
@@ -117,11 +124,16 @@ startTokenmatch(){
     this.saveTokenToCollection(createTokenType, createTokenString);
     this.removeCreatedTokenFromString(createTokenString);
     this.checkForError(tokenStringBeforeCreate);
-    // this.checkForOnlySpaces()
-    // this.saveTokenToCollection("END", "")
   } 
   this.saveTokenToCollection('END', '')
+}
 
+startTokenmatch(){
+  const notOnlySpaces = this.checkForOnlySpaces()
+  if(notOnlySpaces){
+    this.createTokens();  
+  } else {
+    this.saveTokenToCollection('END', '')
+  }
  }
-
 }

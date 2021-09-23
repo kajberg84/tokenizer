@@ -17,10 +17,10 @@ export  const WordAndDotGrammar = [
 ]
 
 export const ArithmeticGrammar = [
-{
-  tokenType:"NUMBER",
-  tokenRegex:/\d/
-},
+  {
+    tokenType:"NUMBER",
+    tokenRegex:/\d|\./
+  },
 {
   tokenType: "ADD",
   tokenRegex: /^[+]/ 

@@ -15,13 +15,11 @@ import * as test from "./testCases.js"
 
 const startApp = async () => {
   try {
-    const tokenizedCollection = startTokenizer(test.ArithmeticGrammar, '3 + 54 * 4');    
+    const tokenizedCollection = startTokenizer(test.WordAndDotGrammar, ' ');
     tokenizedCollection.startTokenmatch();
     tokenizedCollection.showTokenCollection();
-    // tokenizedCollection.nextToken()
-  // tokenizedCollection.previousToken()
     console.log( tokenizedCollection.getActiveToken());
-    
+
   } catch (err) {
     if (err instanceof LexicalError) {
       console.log("LexicalError");
