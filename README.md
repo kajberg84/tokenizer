@@ -3,19 +3,45 @@
 ## Tokenizer - 1dv610 - Laboration 1
 
 ## User Manual
-1. Npm install.
-2. Go to Inside StartTokeniz.js 
-3. startTokenizer(LexicalGrammar, stringToTokenize) Returns an instans of Class Tokenizer. (See below for arguments).
-4. Add methods to created instance.(See below).
+1. Open terminal.
+2. Locate this mapfolder. "L1".
+3. Write "Npm install".
+4. Open grammars.js
+5. Add wanted grammar(s). (see example below)
+6. Open stringToUseInTokenizer.js
+7. Add wanted string to create token(s) from.
+8. Open main.js.
+9. startTokenizer(grammar.createdGrammarfrom#5, string.createTokenString). Returns an instance of Class Tokenizer. (See below for arguments).
+10. Add methods to created instance(See below what kind of methods).
 
-## startTokenizer.js
+---
+
+11. If you want to try out CLI-app you need to write - import { startUserCLI } from "./utility/startUserCLI.js" in main.js.  
+12. Follow #1-9 then startUserCLI(tokenizedCollection)
+
+---
+
+## grammars.js
+
+### Example grammar':'
+
+    const WordAndDotGrammar = [
+      {
+      tokenType:"WORD",
+      tokenRegex:/^[\w|åäöÅÄÖ]+/
+      },  
+      {
+      tokenType:"DOT",
+      tokenRegex:/^\./
+      }
+    ]
+
+---
+
+## main.js
 
   <span style="color:lightblue">@function startTokenizer</span>(LexicalGrammar, stringToTokenize)  
      @Returns instance of Tokenizer.
-
-  @LexicalGrammar - lexicalGramars.  
-  @stringToTokenize - String to creates tokens from.  
-
 ---------------
 
 <span style="color:lightblue">getActiveToken()</span>  
@@ -31,7 +57,9 @@ Switch to the previous token.
 Showing a collection of all created tokens.
 
 -----
-# Extra: Cli 
+
+### Extra Cli:
+
 exampel: instans.startUserCLI()
 
 <span style="color:lightblue">@function startUserCLI</span>(allTokens)  

@@ -1,5 +1,3 @@
+kolla på VG gramatik och fixa till lite klasser.
 
-automatiska tester.
-
-hur mocha kan skicka tillbaka undefined.
-
+fyll i release

@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-import { LexicalError } from './errorHandling.js';
+import { LexicalError } from './utility/errorHandling.js';
 
 /**
  *Creating an new Tokenizer object.

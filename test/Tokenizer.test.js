@@ -123,7 +123,6 @@ describe("TestCases", function () {
 
     it("TC11. Should throw Lexical Error", function () {
       const classInstans = startTokenizer(WordAndDotGrammar, "!");
-      // classInstans.startTokenmatch();
       expect(() => {
         classInstans.startTokenmatch();
       }).to.throw(Error, "No lexical element matches");
@@ -153,6 +152,30 @@ describe("TestCases", function () {
       classInstans.nextToken();
       let result = classInstans.getActiveToken().tokenValue;
       expect(result).to.be.equal("*");
+    });
+
+    it('TC15.  Should throw Lexical Error', function () {
+      const classInstans = startTokenizer(ArithmeticGrammar, "3+5 # 4");
+      // classInstans.startTokenmatch();
+      // classInstans.nextToken();
+      // classInstans.nextToken();
+      // classInstans.nextToken();
+      expect(() => {
+        classInstans.startTokenmatch();
+      }).to.throw(Error, "No lexical element matches");
+    });
+
+    it('TC16. Should return "+"', function () {
+      const classInstans = startTokenizer(ArithmeticGrammar, "3.0+54.1 + 4.2");
+      classInstans.startTokenmatch();
+      classInstans.nextToken();
+      classInstans.previousToken();
+      classInstans.nextToken();
+      classInstans.nextToken();
+
+      classInstans.nextToken();
+      let result = classInstans.getActiveToken().tokenValue;
+      expect(result).to.be.equal("+");
     });
   });
 });

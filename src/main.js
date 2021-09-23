@@ -7,19 +7,16 @@
 
 
 import {  startTokenizer } from "./startTokenizer.js";
-import { LexicalError } from "./errorHandling.js";
-import { startUserCLI } from "./startUserCLI.js";
-
-import * as test from "./testCases.js"
+import { LexicalError } from "./utility/errorHandling.js";
+import * as grammar from "./utility/grammars.js"
+import * as string from "./utility/stringToUseInTokenizer.js"
 
 
 const startApp = async () => {
   try {
-    const tokenizedCollection = startTokenizer(test.WordAndDotGrammar, ' ');
+    const tokenizedCollection = startTokenizer(grammar.WordAndDotGrammar, string.createTokenString);
     tokenizedCollection.startTokenmatch();
     tokenizedCollection.showTokenCollection();
-    console.log( tokenizedCollection.getActiveToken());
-
   } catch (err) {
     if (err instanceof LexicalError) {
       console.log("LexicalError");
