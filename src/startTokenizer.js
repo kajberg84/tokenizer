@@ -11,7 +11,7 @@ import { startUserCLI } from "./startUserCLI.js";
 
 
 export function startTokenizer() {
-  const tokens = new Tokenizer(test.lexicalGrammars2, test.stringToTokenize2);
+  const tokens = new Tokenizer(test.ArithmeticGrammar, test.testCase15);
   tokens.startTokenmatch();
   tokens.showTokenCollection();
 
@@ -21,6 +21,7 @@ export function startTokenizer() {
   // tokens.nextToken()
   // console.log( tokens.getActiveToken());
   // tokens.nextToken()
+
   // tokens.previousToken()
   // console.log( tokens.getActiveToken());
 

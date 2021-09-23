@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-export  const lexicalGrammars = [
+export  const WordAndDotGrammar = [
   {
   tokenType:"WORD",
   tokenRegex:/^[\w|åäöÅÄÖ]+/
@@ -16,21 +16,10 @@ export  const lexicalGrammars = [
   }
 ]
 
-export const lexicalGrammars2 = [
-{
-  tokenType:"FLOAT",
-  tokenRegex: /^.*[0-9]|./
-},
-{
-  tokenType: "INTEGER",
-  tokenRegex: /^[0-9]+/
-}
-]
-
-export const lexicalGrammars3 = [
+export const ArithmeticGrammar = [
 {
   tokenType:"NUMBER",
-  tokenRegex:/^[0-9]+(\.([0-9])+)?/
+  tokenRegex:/\d/
 },
 {
   tokenType: "ADD",
@@ -42,8 +31,31 @@ export const lexicalGrammars3 = [
 },
 ]
 
-export const stringToTokenize =  "     Hej Daniel..... Ha det så bra."
-export const stringToTokenize2 = "3.14 5"
-export const stringToTokenize3 = "3 + 54 * 4"
-export const stringToCreateError3 = "3 + 54 aaa"
-export const space =  " "
+export const FloatNumGrammar = [
+  {
+    tokenType:"FLOAT",
+    tokenRegex: /^.*[0-9]|./
+  },
+  {
+    tokenType: "INTEGER",
+    tokenRegex: /\d/
+  }
+  ]
+
+export const testCase1 =  "a"
+export const testCase2 =  "a aa"
+export const testCase3 =  "a.b"
+export const testCase4 =  "a.b"
+export const testCase5 =  "aa. b"
+export const testCase6 =  "a.b"
+export const testCase7 =  ""
+export const testCase8 =  " "
+export const testCase9 =  "a"
+export const testCase10 =  "a"
+export const testCase11 =  "!"
+//arithmetic
+export const testCase12 =  "3"
+export const testCase13 =  "3.14"
+export const testCase14 =  "3 + 54 * 4"
+export const testCase15 =  "3+5 # 4"
+export const testCase16 =  "3.0+54.1 + 4.2"
