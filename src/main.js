@@ -15,10 +15,10 @@ import * as string from "./utility/stringToUseInTokenizer.js"
 
 const startApp = async () => {
   try {
-    const tokenizedCollection = startTokenizer(grammar.WordAndDotGrammar, string.createTokenString);
-    // tokenizedCollection.startTokenmatch();
-    // tokenizedCollection.showTokenCollection();
-    startUserCLI(tokenizedCollection);
+    // Example code
+    const tokenizedCollection = startTokenizer(grammar.ExtendedArithmeticGrammar, "3.14 * (5 + 3)");
+    tokenizedCollection.startTokenmatch();
+
   } catch (err) {
     if (err instanceof LexicalError) {
       console.log("LexicalError");

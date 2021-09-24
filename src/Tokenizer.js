@@ -95,7 +95,7 @@ return false;
 checkForLongestTokenMatch(grammar) {
   let returnTokenString = '';
   for(let j=0; j < this.tokenizedString.length; j++){
-    const letterToMatch = this.tokenizedString[j];    
+    const letterToMatch = this.tokenizedString[j];   
     if(letterToMatch.match(grammar.tokenRegex)){
       returnTokenString += letterToMatch;
     } else {

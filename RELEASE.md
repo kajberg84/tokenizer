@@ -40,30 +40,42 @@ Lista de enskilda testfallen. **Fetmarkera** sådant som du själv fyllt i. En r
 | Namn      | Grammatik | Sträng | Sekvens | Förväntat Aktivt Token | PASS/FAIL |
 | --------- | --------- | ------ | ------- | ------------ | --------- |
 |    TC1       |     WordAndDotGrammar      |    “a”    |   []      |     WORD(“a”)         |  ✅      |
-|    TC2       |     WordAndDotGrammar      |    “a aa”    |   [>]      |     WORD(“a”)         |  ✅      |
+|    TC2       |     WordAndDotGrammar      |    “a aa”    |   [>]      |     WORD(“aa”)         |  ✅      |
 |    TC3       |     WordAndDotGrammar      |    “a.b”    |   [>]      |     DOT(“.”)         |  ✅      |
-|    TC4       |     WordAndDotGrammar      |    “a.b”    |   [>>]      |     WORD(“a”)         |  ✅      |
-|    TC5       |     WordAndDotGrammar      |    “aa. b”    |   []      |     WORD(“b”)         | ✅      |
-|    TC6       |     WordAndDotGrammar      |    “a.b”    |   [>><]      |     DOT(“.”)         | ✅      |
+|    TC4       |     WordAndDotGrammar      |    “a.b”    |   [>>]      |     **WORD(“b”)**         |  ✅      |
+|    TC5       |     WordAndDotGrammar      |    “aa. b”    |   **[>>]**     |     WORD(“b”)         | ✅      |
+|    TC6       |     WordAndDotGrammar      |    “a .b”    |   [>><]      |     DOT(“.”)         | ✅      |
 |    TC7       |     WordAndDotGrammar      |    “”   |   []      |     END         |  ✅      |
-|    TC8       |     WordAndDotGrammar      |    “ ”    |   []      |     END         |  ✅      |
-|    TC9       |     WordAndDotGrammar      |    “a”    |   []      |     END         |  ✅      |
-|    TC10       |     WordAndDotGrammar      |    “a”    |   [<]      |     WORD(“a”)         | ✅      |
-|    TC11       |     WordAndDotGrammar      |    “!”    |   []      |     LexicalError         |  ✅      |
+|    TC8       |     WordAndDotGrammar      |    “ ”    |   []      |     **END**         |  ✅      |
+|    TC9       |     WordAndDotGrammar      |    “a”    |   **[>]**      |     END         |  ✅      |
+|    TC10       |     WordAndDotGrammar      |    “a”    |   [<]      |     **WORD(“a”)**         | ✅      |
+|    TC11       |     WordAndDotGrammar      |    “!”    |   []      |     **LexicalError**         |  ✅      |
 |    TC12       |     WordAndDotGrammar      |    “3”    |   []      |     NUMBER(“3”)         | ✅      |
 |    TC13       |     ArithmeticGrammar      |    “3.14”    |   []      |     NUMBER(“3.14”)         | ✅      |
 |    TC14       |     ArithmeticGrammar      |    “3 + 54 * 4”    |   [>>>]      |     MUL(“*”)         |  ✅      |
-|    TC15       |     ArithmeticGrammar      |    “3+5 # 4”    |   [>>>]      |     LexicalError         |  ✅      |
+|    TC15       |     ArithmeticGrammar      |    “3+5 # 4”    |   ---      |     LexicalError         |  ✅      |
 |    TC16       |     ArithmeticGrammar      |    “3.0+54.1     + 4.2”    |   [><>>>]      |     WORD(“a”)         |  ✅     |
+
 ---------
-Testkommentar: Till en start slänger mitt testfall på TC15 lexikalfel. Har ej besämt om man ska kunna pendla eller inte här.
 
 ### Testfall för högre betyg
 
-Lista de enskilda testfallen. En rad per testfall.
 | Namn      | Grammatik | Sträng | Sekvens | Förväntat Aktivt Token | PASS/FAIL |
 | --------- | --------- | ------ | ------- | ------------ | --------- |
 |           |           |        |         |              |           |
+|    TC17       |     ExtendedArithmeticGrammar      |    “3.14 * (5 + 3)”    |   Array    |     length = 8         | ✅      |
+|    TC18       |     ExtendedArithmeticGrammar      |    “3.14 * (5 + 3)”    |   [>>]      |     LEFTPAR(“ ( ”)         | ✅      |
+|    TC19       |     ExtendedArithmeticGrammar      |    “3.14 * (5 + 3)”    |   [>>>>>>]      |      RIGHTPAR(“ ) ”)          |  ✅      |
+|    TC20       |     ExtendedArithmeticGrammar      |    “3.14 * (5 + 3)”    |   [<]      |     NUMBER(“3.14”)         |  ✅      |
+|    TC21       |     ExtendedArithmeticGrammar      |    “3+5 # 4”    |   ---     |     LexicalError        |  ✅     |
+|    TC22       |     ExtendedArithmeticGrammar      |    “3 / (2 - 1)”    |   [>>>>]      |     DIV(“/”)         |  ✅      |
+|    TC23       |     ExtendedArithmeticGrammar      |    “3 / (2 - 1)”    |   [><>>>]      |     SUB(“-”)         |  ✅     |
+|    TC24       |     ExtendedArithmeticGrammar      |    “3 / (2 - 1)”    |   [<]      |     NUMBER(“3”)         |  ✅      |
+
+### Testkommentar
+
+ Till en start slänger mitt testfall på TC15, TC21 lexikalfel.
+Många tycker olika här men inget svårt att ändra i koden om man vill ha ut tidigare tokens.
 
 ## Kodkvalitetskrav
 
