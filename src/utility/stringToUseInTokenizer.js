@@ -7,4 +7,4 @@
 
 
 // EXAMPLE String
-export const createTokenString = "Hej Kaj. Hallå Boje."
+export const createTokenString = "3.14 * (5 + 3)"

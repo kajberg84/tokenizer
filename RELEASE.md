@@ -8,28 +8,72 @@
   - [x] De enda bibliotek och färdiga klasser som används är sådana som måste användas (eller som används för att testa modulen).
 
 ## Egenskattning och mål
-  - [ ] Jag är inte klar eftersom jag vet att jag saknar något. Då skall du inte lämna in!
-  - [ ] Jag eftersträvar med denna inlämning godkänt betyg (E-D)
-    - [ ] De flesta testfall fungerar
-    - [x] Koden är förberedd på Återanvändning
-    - [x] All kod samt historik finns i git 
-    - [x] Kodkvaliterskraven är ifyllda
-    - [ ] Reflektion är skriven
-  - [ ] Jag eftersträvar med denna inlämning högre betyg (C-B) och anser mig uppfylla alla extra krav för detta. 
-    - [x] Samtliga testfall är skrivna
-    - [ ] Egna testfall för Maximal munch och kantfall
-    - [x] Testfall är automatiserade
-    - [x] Det finns en tydlig beskrivning i hur modulen skall användas (i git)
-    - [x] Kodkvalitetskraven är varierade 
-  - [ ] Jag eftersträvar med denna inlämning högsta betyg (A) 
+  - [x] Alla testfall fungerar
+  - [x] Koden är förberedd på Återanvändning
+  - [x] All kod samt historik finns i git 
+  - [x] Kodkvaliterskraven är ifyllda
+  - [x] Reflektion är skriven
+  - [x] Jag eftersträvar med denna inlämning högre betyg (C-B) och anser mig uppfylla alla extra krav för detta. 
+  - [x] Samtliga testfall är skrivna
+  - [x] Egna testfall för Maximal munch och kantfall
+   - [x] Testfall är automatiserade
+  - [x] Det finns en tydlig beskrivning i hur modulen skall användas (i git)
+  - [x] Kodkvalitetskraven är varierade
+  - [x] Jag eftersträvar med denna inlämning högsta betyg (A)
 
 ## Återanvändning
 Enkla instruktioner som står övers i README.md.
-Lättförstålig struktur på var användaren ska lägga in sin gramatik och sträng att skapa tokens från.
-Användaren kommer skriva in de metoder denne vill använda(återfinns i Readme)
+Lättförstålig Readme på var användaren ska lägga in sin gramatik och sträng att skapa tokens från.
+Användaren kommer skriva in de metoder denne vill använda(Finns i Readme)
+
+Från README: 
+
+---------------
+
+## Methods for classinstance
+
+<span style="color:lightblue">getActiveToken()</span>  
+Returns active token.
+
+<span style="color:lightblue">nextToken()</span>  
+Switch to the next token.
+
+<span style="color:lightblue">previousToken()</span>  
+Switch to the previous token.
+
+<span style="color:lightblue">showTokenCollection()</span>  
+Showing a collection of all created tokens.
+
+-----
+
+### Extra Cli:
+
+example: instans.startUserCLI()
+
+<span style="color:lightblue">@function startUserCLI</span>(allTokens)  
+@allTokens - tokenCollection
+Creating a user Command Line interface.  
+
+Using these inputs to change active token  
+Forward = 1,  
+Back = 2  
+Back to first token = 3  
+Close = press anything else  
+
+---
+
+// Slut Readme
 
 ## Beskrivning av min kod
-Beskriv din kod på en hög abstraktionsnivå. En kort beskrivning av dina viktigaste klasser och metoder. Skapa gärna ett klassdiagram som bild. 
+Funktioner:
+StartApp() - Startar upp applikationen.
+startTokenizer(arrayOfLexicalGrammar, stringToCreateTokensFrom)- returnerar en array av tokens.
+
+Metoder:
+startTokenMatch() - starting point för klassmetoder.
+createTokens() - Denna styr skapandet av tokens. Vilka metoder som körs.
+
+
 
 ## Hur jag testat
 Beskriv hur du kommit fram till om din kod fungerar.
@@ -79,32 +123,34 @@ Många tycker olika här men inget svårt att ändra i koden om man vill ha ut t
 
 ## Kodkvalitetskrav
 
-**Fetmarkera** de "regler" som används ur CC. Ni kan frångå tabellformat om ni vill. Skapa direktlänkar till er kod där det är lämpligt.
-**Use Revealing Names** Ex: createTokens, nextToken, checkForOnlySpaces.
-**Avoid Disinformation & Use Pronouncable names** - Försökte tänkte extra på detta.
-**Use Pronouncable names** - Försökt tänkte extra på detta.
-**MethodNames should have prefix** - EX: showTokenCollection, saveTokenToCollection, removeCreatedTokenFromString, createTokenType
-**Dont Pun** - Ex: alltid check om man ska kolla upp något. create vid skapande. show om man ska visa något.
+**Fetmarkera** de "regler" som används ur CC. Ni kan frångå tabellformat om ni vill. Skapa direktlänkar till er kod där det är lämpligt.  
+**Use Revealing Names** Ex: createTokens, nextToken, checkForOnlySpaces.  
+**Avoid Disinformation & Use Pronouncable names** - Försökte tänkte extra på detta.  
+**Use Pronouncable names** - Försökt tänkte extra på detta.  
+**MethodNames should have prefix** - EX: showTokenCollection, saveTokenToCollection, removeCreatedTokenFromString, createTokenType.  
+**Dont Pun** - Ex: alltid check om man ska kolla upp något. create vid skapande. show om man ska visa något. Så använder samma verb om den gjorde dylika saker.
 
-Functions:
-**Do one thing** - det gör det flesta.
-**One level of nesting** - Tog med en nypa sant. Höll mig till max två(fast boken säger ett men if/else satser gillar jag istället för if och sen bara return.) Ett fall har jag tre nesting. "While" som har en "for" som har en "if" i sig. Jag skulle kunna bryta ut if satsen men enligt min mening så kommer det det inte bli enklare att läsa. "createTokens()"
+Functions:  
+**Do one thing** - det gör det flesta.  
+**One level of nesting** - Tog med en nypa sant. Höll mig till max två(fast boken säger ett men if/else satser gillar jag istället för if och sen bara return.) Ett fall har jag tre nesting. "While" som har en "for" som har en "if" i sig. Jag skulle kunna bryta ut if satsen men enligt min mening så kommer det det inte bli enklare att läsa. "createTokens()"  
 
 ### Namngivning
 
 | Namn och förklaring  | Reflektion                                   |
 | -------------------  | ---------------------------------------------|
-| Tokenizer(Det är en tokenizer) |  Hade faktiskt KBsTokenizer först vilket inte sa mycket för andra. Sen läste jag boken och insåg att KB som står för "Kaj Berg" inte är så bra. |
-|                      |                                              |
-|                      |                                              |
-|                      |                                              |
-|                      |                                              |
+| startApplication. Denna som startar upp applikationen. |  Hade faktiskt **KBsTokenizer** först vilket inte sa mycket för andra. Sen läste jag boken och insåg att KB som står för "Kaj Berg" inte är så givande. Boken lärde mig **Avoid Disinformation & Use Pronouncable names** |
+| stringToTokenize. Strängen som ska tokenizeras. | Jag tänkte från början ha "stringToCreateTokensFrom" men kändes lite väl långt och eftersom detta är en tokenizerare så hoppades jag på att den som ska använda förstod detta. |
+| _tokensCreatedCollection. Här som alla skapade tokens lagras. | Bra namn och använder mig av **revealing names**.  |
 
 ### Funktioner
 
 | Metodnamn och förklaring  | Reflektion                                   |
 | -------------------  | ---------------------------------------------|
-|                      |                                              |
+|  getActiveToken(). Hämtar aktivt token   |  Använder avslöjande namn och nöjd med det genom hela programmet.                                           |
+|  nextToken() & previousToken(). Byter aktivt token.   |  se raden ovan.   |
+|  _saveTokenToCollection(). Sparar token till kollektionen av skapade tokens | Nu i efterhand så skulle jag kanske kunna haft detta namn _saveCreatedTokenToCollection för att förtydliga.  |
+|  _removeCreatedTokenFromString(). Tar bort den skapade tokens strängs längd från input strängen | Tänkte ett tag på denna och kom inte på så mycket bättre namn och och gör det inte nu heller(kl 22). Något känns ej helt rätt så skulle vilja ha en liten **feedback** / tips på detta namn.|
+|  _checkStringForOnlySpaces(). Kollar strängen om den bara har mellanslag.   |   Lite kluven nu kände jag då jag läste den igen ett par gånger för kanske borde ha ett annat avslöjande namn. Ex: _checkIfStringContainsOnlySpaces. Gärna en **feedback** här med sen.
 
 ## Laborationsreflektion
 

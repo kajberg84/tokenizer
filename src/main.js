@@ -8,16 +8,15 @@
 
 import {  startTokenizer } from "./startTokenizer.js";
 import { LexicalError } from "./utility/errorHandling.js";
-import { startUserCLI } from "./utility/startUserCLI.js" 
 import * as grammar from "./utility/grammars.js"
-import * as string from "./utility/stringToUseInTokenizer.js"
+import { createTokenString } from "./utility/stringToUseInTokenizer.js"
 
 
-const startApp = async () => {
+const startApplication = async () => {
   try {
     // Example code
-    const tokenizedCollection = startTokenizer(grammar.ExtendedArithmeticGrammar, "3.14 * (5 + 3)");
-    tokenizedCollection.startTokenmatch();
+    const tokenizedCollection = startTokenizer(grammar.ExtendedArithmeticGrammar, createTokenString);
+    tokenizedCollection.startTokenMatch();
     tokenizedCollection.showTokenCollection();
   } catch (err) {
     if (err instanceof LexicalError) {
@@ -27,4 +26,4 @@ const startApp = async () => {
   }
 }
 
-startApp()
+startApplication()

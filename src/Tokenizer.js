@@ -18,7 +18,7 @@ export class Tokenizer {
   constructor(lexicalGrammars, stringToTokenize) {
     this._lexicalGrammars = lexicalGrammars;
     this._stringToTokenize = stringToTokenize;
-    this._tokenCollection = [];
+    this._tokensCreatedCollection = [];
     this._activeTokenValue = 0;
   }
 
@@ -35,7 +35,7 @@ export class Tokenizer {
  }
  
  get allCreatedTokens(){
-   return this._tokenCollection;
+   return this._tokensCreatedCollection;
   }
 
 getActiveToken(){
@@ -61,14 +61,14 @@ removeSpace(){
     this.tokenizedString = this.tokenizedString.trim()
 }
 
-saveTokenToCollection(createTokenType, createTokenString){
+_saveTokenToCollection(createTokenType, createTokenString){
   this.allCreatedTokens.push({
     tokenType: createTokenType,
     tokenValue:createTokenString  
   })
 }
 
-removeCreatedTokenFromString(createTokenString){
+_removeCreatedTokenFromString(createTokenString){
   if(this.tokenizedString){
     this.tokenizedString = this.tokenizedString.slice(createTokenString.length);
   }
@@ -79,20 +79,20 @@ showTokenCollection(){
   console.log('--- End of Tokencollection ---');
 }
 
-checkForErrors(tokenStringBeforeCreate){
+_checkForErrors(tokenStringBeforeCreate){
   if(tokenStringBeforeCreate === this.tokenizedString.length){
     throw new LexicalError('No lexical element matches')
   }
 }
 
-checkForOnlySpaces() {  
+_checkStringForOnlySpaces() {  
  if(this.tokenizedString.match(/\S/)){
 return true;
 }
 return false;
 }
 
-checkForLongestTokenMatch(grammar) {
+_checkForLongestTokenMatch(grammar) {
   let returnTokenString = '';
   for(let j=0; j < this.tokenizedString.length; j++){
     const letterToMatch = this.tokenizedString[j];   
@@ -105,7 +105,7 @@ checkForLongestTokenMatch(grammar) {
   return returnTokenString;
 }
 
-createTokens(){
+_createTokens(){
   while (this.tokenizedString.length > 0) {
     let regexMatchedString = '';
     let createTokenString = '';
@@ -114,26 +114,26 @@ createTokens(){
 
     for(let i= 0;i < this.lexicalGrammarInfo.length;i++){
       this.removeSpace();
-      regexMatchedString = this.checkForLongestTokenMatch(this.lexicalGrammarInfo[i]);
+      regexMatchedString = this._checkForLongestTokenMatch(this.lexicalGrammarInfo[i]);
       if(regexMatchedString.length > createTokenString.length){
         createTokenString = regexMatchedString;
         createTokenType = this.lexicalGrammarInfo[i].tokenType;
       }
     }
     tokenStringBeforeCreate = this.tokenizedString.length;
-    this.saveTokenToCollection(createTokenType, createTokenString);
-    this.removeCreatedTokenFromString(createTokenString);
-    this.checkForErrors(tokenStringBeforeCreate);
+    this._saveTokenToCollection(createTokenType, createTokenString);
+    this._removeCreatedTokenFromString(createTokenString);
+    this._checkForErrors(tokenStringBeforeCreate);
   } 
-  this.saveTokenToCollection('END', '')
+  this._saveTokenToCollection('END', '')
 }
 
-startTokenmatch(){
-  const notOnlySpaces = this.checkForOnlySpaces()
+startTokenMatch(){
+  const notOnlySpaces = this._checkStringForOnlySpaces()
   if(notOnlySpaces){
-    this.createTokens();  
+    this._createTokens();  
   } else {
-    this.saveTokenToCollection('END', '')
+    this._saveTokenToCollection('END', '')
   }
  }
 }

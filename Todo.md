@@ -1,9 +1,12 @@
-kolla på VG gramatik och fixa till lite klasser.
 
-
-Läs på googledocs.
 
 fyll i release
 
-kolla på .done
+.done till mocha chai.
 
+## Beskrivning av min kod
+KLASSDIAGRAM
+
+## Laborationsreflektion
+
+Reflektera över uppgiften utifrån ett kodkvalitetsperspektiv. Använd begrepp ifrån boken. 
