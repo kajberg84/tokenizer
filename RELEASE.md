@@ -74,18 +74,32 @@ Lista de enskilda testfallen. **Fetmarkera** sådant som du själv fyllt i. En r
 
 ### Testkommentar
 
- Till en start slänger mitt testfall på TC15, TC21 lexikalfel.
+ Till en start skapar mitt testfall på TC15, TC21 lexikalfel.
 Många tycker olika här men inget svårt att ändra i koden om man vill ha ut tidigare tokens.
 
 ## Kodkvalitetskrav
 
-**Fetmarkera** de "regler" som används ur CC. Ni kan frångå tabellformat om ni vill. Skapa direktlänkar till er kod där det är lämpligt. 
+**Fetmarkera** de "regler" som används ur CC. Ni kan frångå tabellformat om ni vill. Skapa direktlänkar till er kod där det är lämpligt.
+**Use Revealing Names** Ex: createTokens, nextToken, checkForOnlySpaces.
+**Avoid Disinformation & Use Pronouncable names** - Försökte tänkte extra på detta.
+**Use Pronouncable names** - Försökt tänkte extra på detta.
+**MethodNames should have prefix** - EX: showTokenCollection, saveTokenToCollection, removeCreatedTokenFromString, createTokenType
+**Dont Pun** - Ex: alltid check om man ska kolla upp något. create vid skapande. show om man ska visa något.
+
+Functions:
+**Do one thing** - det gör det flesta.
+**One level of nesting** - Tog med en nypa sant. Höll mig till max två(fast boken säger ett men if/else satser gillar jag istället för if och sen bara return.) Ett fall har jag tre nesting. "While" som har en "for" som har en "if" i sig. Jag skulle kunna bryta ut if satsen men enligt min mening så kommer det det inte bli enklare att läsa. "createTokens()"
 
 ### Namngivning
 
 | Namn och förklaring  | Reflektion                                   |
 | -------------------  | ---------------------------------------------|
-| Tokenizer(Det är en tokenizer) |  Hade faktiskt KBsTokenizer först vilket inte sa mycket för andra. Sen läste jag boken och insåg att KB som står för "Kaj Berg" inte är så bra.   |
+| Tokenizer(Det är en tokenizer) |  Hade faktiskt KBsTokenizer först vilket inte sa mycket för andra. Sen läste jag boken och insåg att KB som står för "Kaj Berg" inte är så bra. |
+|                      |                                              |
+|                      |                                              |
+|                      |                                              |
+|                      |                                              |
+
 ### Funktioner
 
 | Metodnamn och förklaring  | Reflektion                                   |
@@ -93,6 +107,7 @@ Många tycker olika här men inget svårt att ändra i koden om man vill ha ut t
 |                      |                                              |
 
 ## Laborationsreflektion
+
 Reflektera över uppgiften utifrån ett kodkvalitetsperspektiv. Använd begrepp ifrån boken. 
 
 

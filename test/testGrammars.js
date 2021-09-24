@@ -1,50 +1,38 @@
 /**
- * Grammars.
+ * Test grammars.
  * 
  * @author Kaj Berg <kb223aw@student.lnu.se>
  * @version 1.0.0
  */
 
 
-// EXAMPLE GRAMMARS
-export  const WordAndDotGrammar = [
+ export const WordAndDotGrammar = [
   {
-  tokenType:"WORD",
-  tokenRegex:/^[\w|åäöÅÄÖ]+/
-  },  
+    tokenType: "WORD",
+    tokenRegex: /^[\w|åäöÅÄÖ]+/,
+  },
   {
-  tokenType:"DOT",
-  tokenRegex:/^\./
-  }
-]
+    tokenType: "DOT",
+    tokenRegex: /^\./,
+  },
+];
 
 export const ArithmeticGrammar = [
   {
     tokenType:"NUMBER",
     tokenRegex:/\d|\./
   },
-{
-  tokenType: "ADD",
-  tokenRegex: /^[+]/ 
-},
-{
-  tokenType: "MUL",
-  tokenRegex: /^[*]/  
-},
-]
-
-export const FloatIntegerGrammar =  [
   {
-    tokenType: "FLOAT",
-    tokenRegex: /^[.]|[0-9]/,
+    tokenType: "ADD",
+    tokenRegex: /^[+]/ 
   },
   {
-    tokenType: "INTEGER",
-    tokenRegex: /\d/,
+    tokenType: "MUL",
+    tokenRegex: /^[*]/  
   },
-];
+  ]
 
-export const ExtendedArithmeticGrammar = [
+  export const ExtendedArithmeticGrammar = [
   {
     tokenType:"NUMBER",
     tokenRegex:/\d|\./
@@ -66,11 +54,11 @@ export const ExtendedArithmeticGrammar = [
     tokenRegex: /^[/]/  
   },
   {
-    tokenType: "leftPar",
+    tokenType: "LEFTPAR",
     tokenRegex: /\(/  
   },
   {
-    tokenType: "rightPar",
+    tokenType: "RIGHTPAR",
     tokenRegex: /\)/  
   },
   ]

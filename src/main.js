@@ -18,10 +18,9 @@ const startApp = async () => {
     // Example code
     const tokenizedCollection = startTokenizer(grammar.ExtendedArithmeticGrammar, "3.14 * (5 + 3)");
     tokenizedCollection.startTokenmatch();
-
+    tokenizedCollection.showTokenCollection();
   } catch (err) {
     if (err instanceof LexicalError) {
-      console.log("LexicalError");
       console.error(err.message)
     }
     console.error(err.message)

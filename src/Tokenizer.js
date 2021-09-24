@@ -79,7 +79,7 @@ showTokenCollection(){
   console.log('--- End of Tokencollection ---');
 }
 
-checkForError(tokenStringBeforeCreate){
+checkForErrors(tokenStringBeforeCreate){
   if(tokenStringBeforeCreate === this.tokenizedString.length){
     throw new LexicalError('No lexical element matches')
   }
@@ -123,7 +123,7 @@ createTokens(){
     tokenStringBeforeCreate = this.tokenizedString.length;
     this.saveTokenToCollection(createTokenType, createTokenString);
     this.removeCreatedTokenFromString(createTokenString);
-    this.checkForError(tokenStringBeforeCreate);
+    this.checkForErrors(tokenStringBeforeCreate);
   } 
   this.saveTokenToCollection('END', '')
 }

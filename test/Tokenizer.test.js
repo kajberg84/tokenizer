@@ -1,62 +1,8 @@
-import { assert, should, expect } from "chai";
+import { expect } from "chai";
 import { startTokenizer } from "../src/startTokenizer.js";
+import { WordAndDotGrammar, ArithmeticGrammar, ExtendedArithmeticGrammar } from './testGrammars.js'
 
-const WordAndDotGrammar = [
-  {
-    tokenType: "WORD",
-    tokenRegex: /^[\w|åäöÅÄÖ]+/,
-  },
-  {
-    tokenType: "DOT",
-    tokenRegex: /^\./,
-  },
-];
 
-const ArithmeticGrammar = [
-  {
-    tokenType:"NUMBER",
-    tokenRegex:/\d|\./
-  },
-  {
-    tokenType: "ADD",
-    tokenRegex: /^[+]/ 
-  },
-  {
-    tokenType: "MUL",
-    tokenRegex: /^[*]/  
-  },
-  ]
-
-const ExtendedArithmeticGrammar = [
-  {
-    tokenType:"NUMBER",
-    tokenRegex:/\d|\./
-  },
-  {
-    tokenType: "ADD",
-    tokenRegex: /^[+]/ 
-  },
-  {
-    tokenType: "MUL",
-    tokenRegex: /^[*]/  
-  },
-  {
-    tokenType: "SUB",
-    tokenRegex: /^[-]/  
-  },  
-  {
-    tokenType: "DIV",
-    tokenRegex: /^[/]/  
-  },
-  {
-    tokenType: "LEFTPAR",
-    tokenRegex: /\(/  
-  },
-  {
-    tokenType: "RIGHTPAR",
-    tokenRegex: /\)/  
-  },
-  ]
 
 describe("Tokenizer Testcases all using MaximalMunch", function () {
   describe("WordAndDotGrammar", function () {
