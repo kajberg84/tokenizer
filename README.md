@@ -4,14 +4,15 @@
 
 ## User Manual
 1. Open terminal.
-2. Locate this mapfolder. "L1".
-3. Write "Npm install".
+2. git clone xxx.
+3. cd /l1
+3. Write "Npm install" in terminal.
 4. Open grammars.js
 5. Add wanted grammar(s). (see example below)
 6. Open stringToUseInTokenizer.js
 7. Add wanted string to create token(s) from.
 8. Open main.js.
-9. startTokenizer(grammar.createdGrammarfrom#5, string.createTokenString). Returns an instance of Class Tokenizer. (See below for arguments).
+9. startTokenizer(grammar.createdGrammarfrom#5, createTokenString). Returns an instance of Class Tokenizer. (See below for arguments).
 10. Add methods to created instance(See below what kind of methods).
 
 ---
