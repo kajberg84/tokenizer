@@ -17,8 +17,9 @@
 
 ---
 
-11. If you want to try out "CLI app - Beta" you need to write - import { startUserCLI } from "./utility/startUserCLI.js" in main.js.  
+11. If you want to try out "CLI app - Beta" you need to write 
 12. Follow #1-9 then startUserCLI(tokenizedCollection)
+13. import { startUserCLI } from "./utility/startUserCLI.js" in main.js.  
 
 ---
 
@@ -46,7 +47,7 @@
 
 ---------------
 
-## Methods for classinstance
+## Methods for Tokenizer
 
 <span style="color:lightblue">getActiveToken()</span>  
 Returns active token.
