@@ -126,6 +126,10 @@ Så Automatiska enhetstester med hjälp av mocha chai. Tog de fallen som fanns i
 |    TC26       |     SpecifikLetterGrammar      |    “AaabBbccC”    |   [>]    |     LetterB(“bBb”)         | ✅      |
 |    TC27       |     SpecifikLetterGrammar      |    “AaabBbccC”    |   [>>]    |     LetterC(“ccC”)         | ✅      |
 
+### Printscreen from Mocha & Chai testing
+
+![Alt text](images/autotestingcases.jpg "Automatic Testing using mocha & chai")
+
 ### Testkommentar
 
 Just nu skapar mitt testfall på TC15, TC21 lexikalfel.
