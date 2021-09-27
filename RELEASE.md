@@ -148,7 +148,7 @@ Några av de regler som jag använt mig utav är:
 
 Functions:  
 **Do one thing** - det gör de flesta.  
-**One level of nesting** - Tog med en nypa sant. Höll mig till max två(fast boken säger "ett". Dock "if/else" satser gillar jag istället för if och sen bara return.) I ett fall har jag tre stycken nesting. "While" som har en "for" som har en "if" i sig. Jag skulle kunna bryta ut if satsen men enligt min mening så kommer det inte bli enklare att läsa. Se: "createTokens()"  
+**One level of nesting** - Tog med en nypa sant. Höll mig till max två(fast boken säger "ett". Dock "if/else" satser gillar jag istället för if och sen bara return.) I ett fall har jag tre stycken nesting. "While" som har en "for" som har en "if" i sig. Jag skulle kunna bryta ut "while satsen" eller "for loopen" och kommer göra så i framtiden men ville ej gå in och ändra i koden. Så leason learned. Se: "createTokens()". 
 
 ### Namngivning
 
@@ -165,7 +165,7 @@ Functions:
 |  getActiveToken(). Hämtar aktivt token   |  Använder avslöjande namn och nöjd med det genom hela programmet.                                           |
 |  nextToken() & previousToken(). Byter aktivt token.   |  se raden ovan.   |
 |  _saveTokenToCollection(). Sparar token till kollektionen av skapade tokens | Nu i efterhand så skulle jag kanske kunna haft detta namn _saveCreatedTokenToCollection för att förtydliga.  |
-|  _removeCreatedTokenFromString(). Tar bort den skapade tokens strängs längd från input strängen | Tänkte ett tag på denna och kom inte på så mycket bättre namn och och gör det inte nu heller(kl 22). Något känns ej helt rätt så skulle vilja ha en liten **feedback** / tips på detta namn.|
+|  _removeCreatedTokenFromString(). Tar bort den skapade tokens strängs längd från input strängen | Tänkte ett tag på denna och kom inte på så mycket bättre namn och och gör det inte nu heller. Något känns ej helt rätt så skulle vilja ha en liten **feedback** / tips på detta namn om något känns för dåligt.|
 |  _checkStringForOnlySpaces(). Kollar strängen om den bara har mellanslag.   |   Lite kluven nu kände jag då jag läste den igen ett par gånger för kanske borde ha ett annat avslöjande namn. Ex: _checkIfStringContainsOnlySpaces. Gärna en **feedback** här med sen.
 
 ## Laborationsreflektion
@@ -181,6 +181,8 @@ Jag testade lite olika namn under tidens gång vilket boken också förespråkar
 Nu skrev jag detta i javaScript fast jag vet att jag hade gjort det bättre i Java då det är ett mera OOP språk. Jag ville försöka med javaScript och tycker jag fick till det. Suttit ganska mycket med uppgiften och jag valde från början att göra en klass som heter Tokenizer. Jag reflekterade över att jag skulle kunna göra en grammatikklass och skicka in som argument istället. Som en grammatikFabrik(Factory) vilket hade tagit en timme att fixa nu i slutet. Men ville inte in och ändra då jag suttit de timmar jag satte upp som detta skulle ta. I den tidigare kursen hade jag Daniel Toll som mentor och där strulade det mycket för mig med lite program och jag lärde mig där att sätta upp tider man ska jobba och hur mycket. Sen då man är klar med det så är man klar helt enkelt. Så jag gjorde samma för detta. Därav jag ej bröt ut i slutet och gjorde en egen klass av grammatiken.
 
 Känns som jag har lärt mig mycket av boken,laborationen och föreläsningarna. Jag gillade att man fick reda innan vilka kapital föreläsingarna ska innehålla och egentligen hur laborationen "ska skrivas". Så man har tänkt på många av reglerna som ex. **Ha inga sidoeffekter**, **Strukturerad programmering** är några jag ej tagit upp hittills men som jag försökt använda mig utav.
+
+**One level of nesting** - (skrev ovan också) Höll mig till max två(fast boken säger "ett". Dock "if/else" satser gillar jag istället för if och sen bara return.) I ett fall har jag tre stycken nesting. "While" som har en "for" som har en "if" i sig. Jag skulle kunna bryta ut "while satsen" eller "for loopen" och kommer göra så i framtiden men ville ej gå in och ändra i koden. Så leason learned. Se: "createTokens()"  
 
 Efter lite pepp av läraren så gick jag på högre betygsuppgiften vilket inte var så mycket mera än det jag redan hade gjort. Jag har inte under ett år hittills gått för högre betyg men gjorde det nu. Tack vare Daniel, så stor stjärna till honom. Sen säger jag inte att jag ska få högre betyg och vill inte ha någon sympati alls men känns skönt att jag kände att jag har tid, motivation och som att jag har avancerat framåt i mitt tänk. Så det är en till stor sak jag kommer ta med mig från detta.
 
