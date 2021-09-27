@@ -1,4 +1,6 @@
-# Mall för inlämning laboration 1, 1dv610
+# Kaj Berg - Tokenizer
+
+## Tokenizer - 1dv610 - Release.md
 
 ## Checklista
 
@@ -12,13 +14,13 @@
 
   - [x] Alla testfall fungerar
   - [x] Koden är förberedd på Återanvändning
-  - [x] All kod samt historik finns i git 
+  - [x] All kod samt historik finns i git
   - [x] Kodkvaliterskraven är ifyllda
   - [x] Reflektion är skriven
   - [x] Jag eftersträvar med denna inlämning högre betyg (C-B) och anser mig uppfylla alla extra krav för detta. 
   - [x] Samtliga testfall är skrivna
   - [x] Egna testfall för Maximal munch och kantfall
-   - [x] Testfall är automatiserade
+  - [x] Testfall är automatiserade
   - [x] Det finns en tydlig beskrivning i hur modulen skall användas (i git)
   - [x] Kodkvalitetskraven är varierade
   - [x] Jag eftersträvar med denna inlämning högsta betyg (A)
@@ -28,9 +30,9 @@
 Enkla instruktioner som står överst i README.md.
 Lättförstålig Readme på var användaren ska lägga in sin gramatik och sträng att skapa tokens från.
 Användaren kommer skriva in de metoder denne vill använda(Finns i Readme).  
-Tänkte köra ett NPM paket men jag han inte inom tidsramen(läs reflektion).
+Tänkte köra ett NPM paket men jag hann inte inom tidsramen(läs reflektion).
 
-Från README: 
+Inkopierat Från README:
 
 ---------------
 
@@ -54,8 +56,6 @@ Showing a collection of all created tokens.
 
 example: instans.startUserCLI()
 
-<span style="color:lightblue">@function startUserCLI</span>(allTokens)  
-@allTokens - tokenCollection
 Creating a user Command Line interface.  
 
 Using these inputs to change active token  
@@ -70,9 +70,9 @@ Close = press anything else
 
 ## Beskrivning av min kod
 
-Funktioner:
-StartApp() - Startar upp applikationen.
-startTokenizer(arrayOfLexicalGrammar, stringToCreateTokensFrom)- returnerar en array av tokens.
+    Funktioner:  
+    StartApp() - Startar upp applikationen.  
+    startTokenizer(arrayOfLexicalGrammar, stringToCreateTokensFrom)- returnerar en array av tokens.  
 
     Metoder:  
     getActiveToken() Returnerar aktivt token.  
@@ -84,11 +84,9 @@ startTokenizer(arrayOfLexicalGrammar, stringToCreateTokensFrom)- returnerar en a
 
 Först testade själv tills jag insåg att det tog för lång tid. 
 Har använt cypress tidigare men det är end to end så fick kolla lite tutorials på mocha chai.
-Så Automatiska enhetstester med hjälp av mocha chai. Tog de fallen so mfanns i beskrivningen och la till några extra som jag tyckte passade.
+Så Automatiska enhetstester med hjälp av mocha chai. Tog de fallen som fanns i beskrivningen och la till några extra som jag tyckte fyllde ut.
 
 ### Testfall
-
-Lista de enskilda testfallen. **Fetmarkera** sådant som du själv fyllt i. En rad per testfall.
 
 | Namn      | Grammatik | Sträng | Sekvens | Förväntat Aktivt Token | PASS/FAIL |
 | --------- | --------- | ------ | ------- | ------------ | --------- |
@@ -132,10 +130,11 @@ Lista de enskilda testfallen. **Fetmarkera** sådant som du själv fyllt i. En r
 
 Just nu skapar mitt testfall på TC15, TC21 lexikalfel.
 Många tycker olika här men inget svårt att ändra i koden om man vill ha ut tidigare tokens. Så jag körde på att slänga lexikalfel.
+Enkelt att byta i koden om man vill se skapade tokens. 
 
 ## Kodkvalitetskrav
 
-Några av de regler som jag använt mig utav är.
+Några av de regler som jag använt mig utav är:
 
 **Use Revealing Names** Ex: createTokens, nextToken, checkForOnlySpaces.  
 **Avoid Disinformation & Use Pronouncable names** - Försökte tänkte extra på detta.  

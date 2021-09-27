@@ -14,7 +14,7 @@ import { createTokenString } from "./utility/stringToUseInTokenizer.js"
 
 const startApplication = async () => {
   try {
-    // Example code
+    // Example code.
     const tokenizedCollection = startTokenizer(grammar.ExtendedArithmeticGrammar, createTokenString);
     tokenizedCollection.startTokenMatch();
     tokenizedCollection.showTokenCollection();

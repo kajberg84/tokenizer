@@ -17,9 +17,8 @@ let activeLine = 0;
 
 export function startUserCLI(tokenizedCollection){
   tokenizedCollection.startTokenmatch();
-  // tokenizedCollection.showTokenCollection();
+
    const allTokens =  tokenizedCollection.allCreatedTokens
-   console.log(allTokens);
   console.log('Forward = 1, Back = 2, Back to first token = 3, Close = everything else');
   console.log(`\n First token: `, allTokens[activeLine]);
 
