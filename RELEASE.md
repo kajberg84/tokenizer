@@ -25,9 +25,10 @@
 
 ## Återanvändning
 
-Enkla instruktioner som står övers i README.md.
+Enkla instruktioner som står överst i README.md.
 Lättförstålig Readme på var användaren ska lägga in sin gramatik och sträng att skapa tokens från.
-Användaren kommer skriva in de metoder denne vill använda(Finns i Readme)
+Användaren kommer skriva in de metoder denne vill använda(Finns i Readme).  
+Tänkte köra ett NPM paket men jag han inte inom tidsramen(läs reflektion).
 
 Från README: 
 
@@ -73,9 +74,11 @@ Funktioner:
 StartApp() - Startar upp applikationen.
 startTokenizer(arrayOfLexicalGrammar, stringToCreateTokensFrom)- returnerar en array av tokens.
 
-Metoder:
-startTokenMatch() - starting point för klassmetoder.
-createTokens() - Denna styr skapandet av tokens. Vilka metoder som körs.
+    Metoder:  
+    getActiveToken() Returnerar aktivt token.  
+    nextToken() Byter till nästa token.  
+    previousToken() Byter till föregående token.  
+    showTokenCollection() Visar alla skapade tokens.  
 
 ## Hur jag testat
 
@@ -121,6 +124,9 @@ Lista de enskilda testfallen. **Fetmarkera** sådant som du själv fyllt i. En r
 |    TC22       |     ExtendedArithmeticGrammar      |    “3 / (2 - 1)”    |   [>>>>]      |     DIV(“/”)         |  ✅      |
 |    TC23       |     ExtendedArithmeticGrammar      |    “3 / (2 - 1)”    |   [><>>>]      |     SUB(“-”)         |  ✅     |
 |    TC24       |     ExtendedArithmeticGrammar      |    “3 / (2 - 1)”    |   [<]      |     NUMBER(“3”)         |  ✅      |
+|    TC25       |     SpecifikLetterGrammar      |    “AaabBbccC”    |   []    |     LetterA(“Aaa”)         | ✅      |
+|    TC26       |     SpecifikLetterGrammar      |    “AaabBbccC”    |   [>]    |     LetterB(“bBb”)         | ✅      |
+|    TC27       |     SpecifikLetterGrammar      |    “AaabBbccC”    |   [>>]    |     LetterC(“ccC”)         | ✅      |
 
 ### Testkommentar
 

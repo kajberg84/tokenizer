@@ -62,3 +62,19 @@ export const ArithmeticGrammar = [
     tokenRegex: /\)/  
   },
   ]
+
+  export const specifikLetterGrammar = [
+    {
+      tokenType: "LetterA",
+      tokenRegex: /^[Aa]/ 
+    },
+    {
+      tokenType: "LetterB",
+      tokenRegex: /^[Bb]/ 
+    },
+    {
+      tokenType: "LetterC",
+      tokenRegex: /^[Cc]/ 
+    },
+  ]
+
