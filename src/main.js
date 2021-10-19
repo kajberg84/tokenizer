@@ -5,21 +5,8 @@
  * @version 1.0.0
  */
 
-
 import { startTokenizer } from "./startTokenizer.js";
 import { LexicalError } from "./utility/errorHandling.js";
-
-const stringToCreateTokensFrom = "aa.b";
-const grammarsForCreatingTokens = [
-  {
-    tokenType: "WORD",
-    tokenRegex: /^[\w|åäöÅÄÖ]+/,
-  },
-  {
-    tokenType: "DOT",
-    tokenRegex: /^\./,
-  },
-];
 
 /**
  * Starting the tokenizer application.
