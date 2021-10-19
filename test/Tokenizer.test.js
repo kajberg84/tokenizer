@@ -1,8 +1,11 @@
 import { expect } from "chai";
-import { startTokenizer } from "../src/startTokenizer.js";
-import { WordAndDotGrammar, ArithmeticGrammar, ExtendedArithmeticGrammar, specifikLetterGrammar } from './testGrammars.js'
-
-
+import { startTokenizer } from "../src/main.js";
+import {
+  WordAndDotGrammar,
+  ArithmeticGrammar,
+  ExtendedArithmeticGrammar,
+  specifikLetterGrammar,
+} from "./testGrammars.js";
 
 describe("Tokenizer Testcases all using MaximalMunch", function () {
   describe("WordAndDotGrammar", function () {
@@ -88,9 +91,8 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
     });
 
     it("TC11. Should throw Lexical Error", function () {
-      const classInstans = startTokenizer(WordAndDotGrammar, "!");
       expect(() => {
-        classInstans.startTokenMatch();
+        startTokenizer(WordAndDotGrammar, "!");
       }).to.throw(Error, "Error creating tokens");
     });
   });
@@ -120,10 +122,9 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
       expect(result).to.be.equal("*");
     });
 
-    it('TC15. Should throw Lexical Error', function () {
-      const classInstans = startTokenizer(ArithmeticGrammar, "3+5 # 4");
+    it("TC15. Should throw Lexical Error", function () {
       expect(() => {
-        classInstans.startTokenMatch();
+        startTokenizer(ArithmeticGrammar, "3+5 # 4");
       }).to.throw(Error, "Error creating tokens");
     });
 
@@ -141,15 +142,20 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
   });
 
   describe('ExtendedArithmeticGrammar using string "3.14 * (5 + 3)"', function () {
-    it('TC17. Should return 8 tokens(including END).', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3.14 * (5 + 3)");
-      classInstans.startTokenMatch();
+    it("TC17. Should return 8 tokens(including END).", function () {
+      const classInstans = startTokenizer(
+        ExtendedArithmeticGrammar,
+        "3.14 * (5 + 3)"
+      );
       let result = classInstans.allCreatedTokens;
       expect(result).to.have.lengthOf(8);
     });
 
     it('TC18. [>>] Should return " ( "', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3.14 * (5 + 3)");
+      const classInstans = startTokenizer(
+        ExtendedArithmeticGrammar,
+        "3.14 * (5 + 3)"
+      );
       classInstans.startTokenMatch();
       classInstans.nextToken();
       classInstans.nextToken();
@@ -158,7 +164,10 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
     });
 
     it('TC19. [>>>>>>] Should return " ) "', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3.14 * (5 + 3)");
+      const classInstans = startTokenizer(
+        ExtendedArithmeticGrammar,
+        "3.14 * (5 + 3)"
+      );
       classInstans.startTokenMatch();
       classInstans.nextToken();
       classInstans.nextToken();
@@ -170,32 +179,40 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
       expect(result).to.be.equal(")");
     });
 
-    it('TC20. [<] Should return 3.14', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3.14 * (5 + 3)");
+    it("TC20. [<] Should return 3.14", function () {
+      const classInstans = startTokenizer(
+        ExtendedArithmeticGrammar,
+        "3.14 * (5 + 3)"
+      );
       classInstans.startTokenMatch();
       classInstans.previousToken();
       let result = classInstans.getActiveToken().tokenValue;
       expect(result).to.be.equal("3.14");
     });
 
-    it('TC21. Should throw Lexical Error', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3+5 # 4");
+    it("TC21. Should throw Lexical Error", function () {
       expect(() => {
-        classInstans.startTokenMatch();
+        startTokenizer(ExtendedArithmeticGrammar, "3+5 # 4");
       }).to.throw(Error, "Error creating tokens");
-    });    
+    });
   });
 
   describe("ExtendedArithmeticGrammar using string '3 / (2 - 1)'", function () {
     it('TC22. [>] Should return " / ".', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3 / (2 - 1)");
+      const classInstans = startTokenizer(
+        ExtendedArithmeticGrammar,
+        "3 / (2 - 1)"
+      );
       classInstans.startTokenMatch();
       classInstans.nextToken();
       let result = classInstans.getActiveToken().tokenValue;
       expect(result).to.be.equal("/");
     });
     it('TC23. [>>>>] Should return " - ".', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3 / (2 - 1)");
+      const classInstans = startTokenizer(
+        ExtendedArithmeticGrammar,
+        "3 / (2 - 1)"
+      );
       classInstans.startTokenMatch();
       classInstans.nextToken();
       classInstans.nextToken();
@@ -205,14 +222,17 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
       expect(result).to.be.equal("-");
     });
     it('TC24. [<] Should return " 3 ".', function () {
-      const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3 / (2 - 1)");
+      const classInstans = startTokenizer(
+        ExtendedArithmeticGrammar,
+        "3 / (2 - 1)"
+      );
       classInstans.startTokenMatch();
       classInstans.previousToken();
       let result = classInstans.getActiveToken().tokenValue;
       expect(result).to.be.equal("3");
     });
   });
-  
+
   describe("SpecifikLetterGrammar using string 'AaabBbccC'", function () {
     it('TC25. Should return " Aaa ".', function () {
       const classInstans = startTokenizer(specifikLetterGrammar, "AaabBbccC");
@@ -236,4 +256,4 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
       expect(result).to.be.equal("ccC");
     });
   });
-})
+});

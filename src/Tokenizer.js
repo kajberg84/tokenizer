@@ -20,6 +20,7 @@ export class Tokenizer {
     this._stringToTokenize = stringToTokenize;
     this._tokensCreatedCollection = [];
     this._activeTokenValue = 0;
+    this.startTokenMatch();
   }
 
  get tokenizedString(){
