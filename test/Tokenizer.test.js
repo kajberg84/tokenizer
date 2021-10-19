@@ -91,7 +91,7 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
       const classInstans = startTokenizer(WordAndDotGrammar, "!");
       expect(() => {
         classInstans.startTokenMatch();
-      }).to.throw(Error, "No lexical element matches");
+      }).to.throw(Error, "Error creating tokens");
     });
   });
 
@@ -124,7 +124,7 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
       const classInstans = startTokenizer(ArithmeticGrammar, "3+5 # 4");
       expect(() => {
         classInstans.startTokenMatch();
-      }).to.throw(Error, "No lexical element matches");
+      }).to.throw(Error, "Error creating tokens");
     });
 
     it('TC16. [><>>>] Should return "+"', function () {
@@ -182,7 +182,7 @@ describe("Tokenizer Testcases all using MaximalMunch", function () {
       const classInstans = startTokenizer(ExtendedArithmeticGrammar, "3+5 # 4");
       expect(() => {
         classInstans.startTokenMatch();
-      }).to.throw(Error, "No lexical element matches");
+      }).to.throw(Error, "Error creating tokens");
     });    
   });
 

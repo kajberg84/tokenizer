@@ -81,7 +81,7 @@ showTokenCollection(){
 
 _checkForErrors(tokenStringBeforeCreate){
   if(tokenStringBeforeCreate === this.tokenizedString.length){
-    throw new LexicalError('No lexical element matches')
+    throw new LexicalError('Error creating tokens')
   }
 }
 
