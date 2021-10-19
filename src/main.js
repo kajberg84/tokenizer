@@ -2,7 +2,7 @@
  * The starting point of the application.
  *
  * @author Kaj Berg <kb223aw@student.lnu.se>
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 import { Tokenizer } from './Tokenizer.js';

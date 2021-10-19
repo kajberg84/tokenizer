@@ -2,7 +2,7 @@
  * Tokenizer
  * 
  * @author Kaj Berg <kb223aw@student.lnu.se>
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 import { LexicalError } from './utility/errorHandling.js';
