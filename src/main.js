@@ -15,6 +15,7 @@ import { Tokenizer } from "./Tokenizer.js";
  * @param {*} stringToTokenize
  * @return {*} - Returns a tokenizer
  */
+
 export function startTokenizer(LexicalGrammar, stringToTokenize) {
   const tokenizerInstans = new Tokenizer(LexicalGrammar, stringToTokenize);
   return tokenizerInstans;
