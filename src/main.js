@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-import { Tokenizer } from "./Tokenizer.js";
+import { Tokenizer } from './Tokenizer.js';
 
 /**
  * Starting the tokenizer.
@@ -17,6 +17,5 @@ import { Tokenizer } from "./Tokenizer.js";
  */
 
 export function startTokenizer(LexicalGrammar, stringToTokenize) {
-  const tokenizerInstans = new Tokenizer(LexicalGrammar, stringToTokenize);
-  return tokenizerInstans;
+  return new Tokenizer(LexicalGrammar, stringToTokenize);
 }
