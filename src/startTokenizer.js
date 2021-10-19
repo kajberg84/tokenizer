@@ -1,5 +1,5 @@
 /**
- * Funktion that creates an instance of a class and runs methods.
+ * Funktion that creates an instance of tokenizer and returns it.
  * 
  * @author Kaj Berg <kb223aw@student.lnu.se>
  * @version 1.0.0
