@@ -9,7 +9,7 @@
 import { startTokenizer } from "./startTokenizer.js";
 import { LexicalError } from "./utility/errorHandling.js";
 
-const stringToCreateTokensFrom = "aa.b*Ä";
+const stringToCreateTokensFrom = "aa.b";
 const grammarsForCreatingTokens = [
   {
     tokenType: "WORD",
@@ -28,16 +28,14 @@ const grammarsForCreatingTokens = [
  * @param {*} createTokenString
  * @return {Object[]} - Array of tokens.
  */
-const startApplication = async (tokenizerGrammar, createTokenString) => {  
+export const startApplication = async (tokenizerGrammar, createTokenString) => {  
   const tokenizerInstance = startTokenizer(tokenizerGrammar, createTokenString);  
   try {
     tokenizerInstance.startTokenMatch();
-    console.log(tokenizerInstance.allCreatedTokens);
     return tokenizerInstance.allcreatedTokens;
   } catch (err) {
     if (err instanceof LexicalError) {
       console.error(err.message);
-      console.log(tokenizerInstance.allCreatedTokens);
       return tokenizerInstance.allcreatedTokens;
     }
     console.error(err.message);
