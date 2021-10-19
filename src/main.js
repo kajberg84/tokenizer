@@ -28,5 +28,3 @@ export const startApplication = async (tokenizerGrammar, createTokenString) => {
     console.error(err.message);
   }
 };
-
-startApplication(grammarsForCreatingTokens, stringToCreateTokensFrom);
