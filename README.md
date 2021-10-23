@@ -5,7 +5,7 @@
 1. Import startTokenizer from @kajberg/tokenizer.
 2. First parameter: Collection of grammar.
 3. Second parameter: Document to create tokens from(Type String).
-4. Returns Instans of a tokenizer.
+4. startTokenizer(x,y) Returns an Instans of a tokenizer.
 5. Use methods below for desired behavior.
 
 ### How to use it
@@ -33,7 +33,6 @@ tokenizer.getActiveToken();
 // Get all created tokens.
 tokenizer.allCreatedTokens();
 ```
-
 
 ## Methods for Tokenizer
 
